@@ -1,0 +1,38 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Register Affiliate</h3>
+    <form (ngSubmit)="onSubmit()" #affiliateForm="ngForm">
+        <div class="form-group">
+            <label>Name : </label>
+            <input type="text" class="form-control" id="name" [(ngModel)] = "affiliate.name" name = "name"
+            required placeholder="Type your name" minlength="2" #name="ngModel">
+            <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <div *ngIf="name.errors">
+                    Type your name (at least 2 characters)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Age : </label>
+            <input type="number" class="form-control" id="age" [(ngModel)] = "affiliate.age" name = "age"
+            required placeholder="Type your age" minlength="1" #age="ngModel">
+            <div class="alert alert-danger" *ngIf="age.invalid && (age.dirty || age.touched)">
+                <div *ngIf="age.errors">
+                    Type your age (at leats 1 number)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email : </label>
+            <input type="email" class="form-control" id="mail" [(ngModel)] = "affiliate.mail" name = "mail"
+            pattern ="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+            required placeholder="Type your email" #mail="ngModel">
+            <div class="alert alert-danger" *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+                <div *ngIf="mail.errors">
+                    Type your email (format: user100@gmail.com)
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success" [disabled]="!affiliateForm.form.valid">Guardar</button>
+    </form>
+</div>

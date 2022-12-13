@@ -1,0 +1,24 @@
+<h2>List Affiliates</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let affiliate of affiliates">
+            <td>{{affiliate.name}}</td>
+            <td>{{affiliate.age}}</td>
+            <td>{{affiliate.mail}}</td>
+            <td>
+                <button (click)="actualizarAffiliate(affiliate)" class="btn btn-info">Update</button>
+                <button (click)="eliminarAffiliate(affiliate.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                <button (click)="verDetallesDelAffiliate(affiliate.id)" class="btn btn-primary" style="margin-left: 10px">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
